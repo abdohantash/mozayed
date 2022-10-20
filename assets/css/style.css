@@ -13244,6 +13244,7 @@ span.green-bg {
     padding-bottom: 3px;
     min-width: 160px;
     margin-bottom: 8px;
+    text-align: center;
 }
 
 .drop-user .dropdown-menu li p {
