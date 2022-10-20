@@ -359,17 +359,21 @@
         }
     });
 
-        $(".auc-slide").owlCarousel({
-            items:1,
-            dots:true,
-            dotsContainer:'.dots-auc',
-            nav: false,
-            rtl:true
-        });
+    $(".auc-slide").owlCarousel({
+        items: 1,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 7000,
+        autoplayHoverPause: true,
+        rewind:true,
+        dotsContainer: '.dots-auc',
+        nav: false,
+        rtl: true
+    });
 
 
-    
-        $('.countdown').attr('data-date');
+
+    $('.countdown').attr('data-date');
 
 
     const togglePassword = document.querySelector('#togglePassword');
@@ -430,63 +434,61 @@
     });
 
 
-        $('.auc-bid .plus').click(function () {
-            var $input = $(this).parent().find('input');
-            $input.val(parseInt($input.val()) + 1);
-            $input.change();
-            return false;
-        });
-        $('.auc-bid .minus').click(function () {
-            var $input = $(this).parent().find('input');
-            var count = parseInt($input.val()) - 1;
-            count = count < 1 ? 1 : count;
-            $input.val(count);
-            $input.change();
-            return false;
-        });
+    $('.auc-bid .plus').click(function () {
+        var $input = $(this).parent().find('input');
+        $input.val(parseInt($input.val()) + 1);
+        $input.change();
+        return false;
+    });
+    $('.auc-bid .minus').click(function () {
+        var $input = $(this).parent().find('input');
+        var count = parseInt($input.val()) - 1;
+        count = count < 1 ? 1 : count;
+        $input.val(count);
+        $input.change();
+        return false;
+    });
 
-        $('.tabs-nav a').click(function () {
-            // Check for active
-            $('.tabs-nav li').removeClass('active');
-            $(this).parent().addClass('active');
-            // Display active tab
-            let currentTab = $(this).attr('href');
-            $('.tabs-content .content-div').hide();
-            $(currentTab).show();
-            return false;
-          });
+    $('.tabs-nav a').click(function () {
+        // Check for active
+        $('.tabs-nav li').removeClass('active');
+        $(this).parent().addClass('active');
+        // Display active tab
+        let currentTab = $(this).attr('href');
+        $('.tabs-content .content-div').hide();
+        $(currentTab).show();
+        return false;
+    });
 
-          $(".hijri-date-input").hijriDatePicker({
-            isRTL: true,
-            locale: "ar-sa",
-            format: "DD-MM-YYYY",
-            hijriFormat: "iYYYY-iMM-iDD",
-            dayViewHeaderFormat: "MMMM YYYY",
-            hijriDayViewHeaderFormat: "iMMMM iYYYY",
-        });
+    $(".hijri-date-input").hijriDatePicker({
+        isRTL: true,
+        locale: "ar-sa",
+        format: "DD-MM-YYYY",
+        hijriFormat: "iYYYY-iMM-iDD",
+        dayViewHeaderFormat: "MMMM YYYY",
+        hijriDayViewHeaderFormat: "iMMMM iYYYY",
+    });
 
-        $('.table.datatable').DataTable({
-            lengthChange: true,
-            language: {
-              "url": "http://cdn.datatables.net/plug-ins/1.12.1/i18n/ar.json"
-            }
-          });
+    $('.table.datatable').DataTable({
+        lengthChange: true,
+        language: {
+            "url": "http://cdn.datatables.net/plug-ins/1.12.1/i18n/ar.json"
+        }
+    });
 
-          $('.toolbox-layout .btn-layout').on('click',function(e) {
-            if ($(this).hasClass('icon-mode-grid')) {
-                $('.btn-layout').removeClass('active');
-                $(this).addClass('active')
-                $('.auctions-card').removeClass('list').addClass('grid');
-            }
-            else if($(this).hasClass('icon-mode-list')) {
-                $('.btn-layout').removeClass('active');
-                $(this).addClass('active')
-                $('.auctions-card').removeClass('grid').addClass('list');
-            }
-        });
-    
+    $('.toolbox-layout .btn-layout').on('click', function (e) {
+        if ($(this).hasClass('icon-mode-grid')) {
+            $('.btn-layout').removeClass('active');
+            $(this).addClass('active')
+            $('.auctions-card').removeClass('list').addClass('grid');
+        } else if ($(this).hasClass('icon-mode-list')) {
+            $('.btn-layout').removeClass('active');
+            $(this).addClass('active')
+            $('.auctions-card').removeClass('grid').addClass('list');
+        }
+    });
+
     $('select').select2();
 
 
 }(jQuery));
-
